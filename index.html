@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOURS (change here if you like) ===== */
+:root{
+  --pale:#FFF0F7; --pastel:#FFD6E9; --medium:#FF8FC7; --strong:#E85CA7; --text:#65314E;
+  --font:"Fredoka",ui-rounded,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --script:"Pacifico","Brush Script MT",cursive;
+  --shadow:0 6px 0 rgba(232,92,167,.16),0 14px 28px rgba(232,92,167,.18);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:var(--font);font-size:17px;line-height:1.5;color:var(--text);background:#000;overflow-x:clip}
+body.unlocked{background-color:var(--pale);background-image:radial-gradient(var(--pastel) 2.2px,transparent 2.8px);background-size:28px 28px}
+body.noscroll{overflow:hidden}
+img,iframe,video{max-width:100%}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+
+/* ===== PAGE 1: plain black password screen ===== */
+#gate{min-height:100vh;min-height:100dvh;background:#000;display:flex;align-items:center;justify-content:center;padding:24px}
+#gate form{width:100%;max-width:300px;display:flex;flex-direction:column;gap:12px}
+#gate input{width:100%;height:50px;padding:0 14px;border:1px solid #444;border-radius:6px;background:#000;color:#fff;font:400 18px var(--font);text-align:center;outline:none}
+#gate input:focus{border-color:#888}
+#gate button{height:50px;border:1px solid #444;border-radius:6px;background:#000;color:#fff;font:400 17px var(--font);cursor:pointer}
+#gate button:active{background:#1a1a1a}
+#err{min-height:1.4em;margin:0;text-align:center;color:#bbb;font-size:15px}
+
+/* ===== shared pink pages ===== */
+.page{position:relative;overflow:hidden;min-height:100vh;min-height:100dvh;padding:calc(env(safe-area-inset-top,0px) + 18px) calc(env(safe-area-inset-right,0px) + 18px) calc(env(safe-area-inset-bottom,0px) + 40px) calc(env(safe-area-inset-left,0px) + 18px);animation:pageIn .5s ease both}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto}
+.wrap.wide{max-width:1000px}
+.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border:0;border-radius:999px;cursor:pointer;font-weight:600;font-size:1.12rem;color:#fff;text-decoration:none;text-align:center;background:linear-gradient(180deg,#FF8FC7,var(--strong));box-shadow:0 5px 0 #c4468b,0 12px 20px rgba(232,92,167,.32)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #c4468b}
+.btn.big{min-height:64px;padding:0 36px;font-size:1.28rem}
+.btn.soft{color:var(--text);background:#fff;border:2px solid var(--pastel);box-shadow:0 4px 0 var(--pastel);min-height:48px;padding:0 22px;font-size:1rem}
+.back{appearance:none;min-height:46px;padding:0 18px;border-radius:999px;cursor:pointer;background:#fff;border:2px solid var(--pastel);color:var(--strong);font-weight:600;box-shadow:0 4px 0 var(--pastel)}
+.title{margin:10px 0 6px;text-align:center;font-family:var(--script);font-weight:400;font-size:clamp(1.9rem,8vw,2.5rem);line-height:1.3;color:var(--strong);text-shadow:0 3px 0 #fff;outline:none}
+.intro{margin:0 auto 24px;max-width:34ch;text-align:center;opacity:.85}
+.empty{margin:20px auto;max-width:380px;padding:28px 22px;text-align:center;background:#fff;border:3px dashed var(--medium);border-radius:28px}
+.empty b{display:block;font-size:2.6rem;margin-bottom:6px}
+.fl{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.fl span{position:absolute;bottom:-40px;color:var(--medium);opacity:0;animation:up linear infinite}
+
+/* PAGE 2 */
+#p-birthday{display:grid;place-items:center;background:linear-gradient(180deg,rgba(255,214,233,.55),transparent 55%)}
+.card{position:relative;z-index:1;width:100%;max-width:520px;margin:70px auto 0;padding:34px 22px 30px;text-align:center;background:#fff;border-radius:36px;box-shadow:0 0 0 4px var(--pastel),0 10px 26px rgba(232,92,167,.22)}
+.card svg{width:min(46vw,168px);margin:-100px auto 4px;display:block;filter:drop-shadow(0 8px 10px rgba(232,92,167,.3));animation:bob 4s ease-in-out infinite}
+.kicker{margin:0;font-family:var(--script);color:var(--medium);font-size:1.2rem}
+.hero{margin:6px 0 14px;font-weight:600;line-height:1.15;font-size:clamp(2.1rem,10.5vw,3rem);color:var(--strong);text-shadow:0 3px 0 var(--pastel);text-wrap:balance;outline:none}
+.msg{margin:0 0 20px;font-size:1.08rem;white-space:pre-line}
+.stickers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 26px;padding:0;list-style:none}
+.stickers li{padding:6px 14px;border-radius:999px;font-size:.92rem;background:var(--pale);border:2px dashed var(--medium);transform:rotate(-2deg)}
+.stickers li:nth-child(2n){transform:rotate(2.5deg)}
+
+/* PAGE 7 letters */
+#p-letters{background:linear-gradient(180deg,rgba(255,214,233,.6),transparent 60%)}
+.lgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px;padding:8px 2px 0}
+.env{appearance:none;position:relative;display:block;width:100%;min-height:138px;padding:56px 10px 14px;border:0;cursor:pointer;text-align:center;background:#fff;border-radius:6px 6px 14px 14px;box-shadow:0 6px 0 rgba(232,92,167,.18),0 12px 22px rgba(232,92,167,.16);transform:rotate(-1deg);font-weight:500;font-size:.95rem;line-height:1.3;color:var(--text)}
+.env:nth-child(2n){transform:rotate(1.2deg)}
+.env:active{transform:scale(.97)}
+.env::before{content:"";position:absolute;left:0;right:0;top:0;height:54px;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--pastel),#ffe7f2);clip-path:polygon(0 0,100% 0,50% 100%)}
+.env::after{content:"♥";position:absolute;left:50%;top:30px;width:30px;height:30px;margin-left:-15px;display:grid;place-items:center;border-radius:50%;background:var(--strong);color:#fff;font-size:.95rem}
+.env span{position:relative;overflow-wrap:anywhere}
+
+/* music button */
+#music{position:fixed;z-index:60;right:calc(env(safe-area-inset-right,0px) + 14px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;font-size:1.4rem;background:#fff;color:var(--strong);box-shadow:0 4px 0 var(--pastel),0 8px 18px rgba(232,92,167,.35)}
+#music:active{transform:translateY(3px);box-shadow:0 1px 0 var(--pastel)}
+#music.on span{display:inline-block;animation:bob 2s ease-in-out infinite}
+/* pop-ups */
+.ov{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow-y:auto;padding:14px;background:rgba(60,20,45,.62);animation:fade .2s both}
+.modal{position:relative;width:100%;max-width:560px;max-height:100%;animation:pop .3s both}
+.x{position:absolute;top:-6px;right:-4px;z-index:3;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:#fff;color:var(--strong);font-size:1.3rem;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.paper{position:relative;padding:30px 24px 24px;border-radius:22px;background:#fffdf8;text-align:left;background-image:repeating-linear-gradient(transparent 0 31px,rgba(255,143,199,.28) 31px 32px);background-position:0 14px;box-shadow:0 0 0 4px var(--pastel),0 10px 26px rgba(232,92,167,.3);max-height:calc(100dvh - 100px);overflow-y:auto}
+.paper h2{margin:8px 40px 14px 0;font-family:var(--script);font-weight:400;font-size:1.45rem;line-height:1.4;color:var(--strong);overflow-wrap:anywhere}
+.paper p{margin:0;line-height:32px;font-size:1.05rem;white-space:pre-line;overflow-wrap:anywhere}
+.paper .sig{margin-top:14px;font-family:var(--script);color:var(--strong);line-height:1.7}
+@media(min-width:700px){.lgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@keyframes pageIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+@keyframes up{0%{transform:translateY(0);opacity:0}12%{opacity:.5}90%{opacity:.5}100%{transform:translateY(-115vh);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.fl{display:none}}
+</style>
+</head>
+
+<body>
+
+<!-- ============ PAGE 1: plain black password screen ============ -->
+<div id="gate">
+  <form id="form" autocomplete="off">
+    <input id="pw" type="password" placeholder="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Password">
+    <button type="submit">Unlock</button>
+    <p id="err" role="alert"></p>
+  </form>
+</div>
+
+<div id="app" hidden></div>
+<div id="modal-root"></div>
+
+<script>
+/* ==========================================================================
+   ✏️  EDIT EVERYTHING HERE  (this is the only part you need to touch)
+   • Keep the "quotes" and the commas.
+   • To delete an item, delete its whole { ... }, line.
+   • To reorder, cut/paste whole lines.
+   • {name} in any text becomes her nickname, {from} becomes your name.
+   ========================================================================== */
+
+// 🔑 THE PASSWORD — change the text between the quotes.
+// (Capital letters don't matter: "OurLove" and "ourlove" both work.)
+var PASSWORD = "10-9-2025";
+
+var NICKNAME = "My cutie meow";
+var YOUR_NAME = "Daddy";
+
+/* 🎵 BACKGROUND MUSIC (plays softly on a loop after she unlocks)
+   1. Put your song file in the SAME folder as index.html, e.g. "music.mp3".
+   2. Type its exact file name below. Leave it as "" for no music.
+   3. When you publish, upload the music file together with index.html. */
+var MUSIC_FILE = "music.mp3";
+var MUSIC_VOLUME = 0.35;   // 0 = silent, 1 = full. Soft background = 0.2 to 0.4
+
+var BIRTHDAY_HEADING = "Happy Birthday, My Cutiepie! 🎂💗";
+var BIRTHDAY_MESSAGE =
+  "Its so hard to believe n so sweet how i have seen you grow so much, n trust me not just in age." +
+  "Since its my baby's special day, Dadda has prepared sum stuff for you.\n\n" +
+  "Come on in — I've hidden quite a few goodies inside. 🎀";
+var BIRTHDAY_BUTTON = "Open your surprise ♡";
+var STICKERS = ["✨ made with love", "🎀 Hope u like it", "💗 101% yours"];
+
+/* 💌 LITTLE LETTERS
+   Each letter is one line like:   { title: "Open when ...", message: "..." },
+   • To ADD a letter: copy any whole { ... }, line, paste it below the last one, and edit it.
+     You can add as many as you want — the page grows by itself.
+   • To EDIT: change the text inside the quotes.
+   • To REMOVE: delete the whole { ... }, line.  To REORDER: cut/paste lines.
+   • For a new paragraph inside a message, type \n\n
+   • Don't use a plain " inside the text (it breaks the line). Use ' or ” instead.
+   • {name} becomes her nickname and {from} becomes your name. */
+var LETTERS_TITLE = "Little Letters 💌";
+var LETTERS_INTRO = "Open one whenever you need it ♡";
+var SIGNATURE = "Forever yours,\nDadda 💗";
+var LETTERS = [
+  { title: "Open when you miss me",
+    message: "Hey cutiepie, if you're reading this, I'm prolly missing u a lot more hmph. I'm prolly somewhere far from you, and not able to text you, but i hope you always know tht dadda might not be txting u rn but hes always with u, in ur heart, soul, n mind.\n\nUr dadda's stwong baby, n ik u cn get thru this, dadda's gonna be with you soon, i pwomise. So until then stay patient, close ur eyes, n imagine dadda's arms around u oki bubs?" },
+  { title: "Open when you're sad",
+    message: "Oh, {name}. Come here. 🫂\n\nIt's okay to feel sad. You don't have to be strong all the time. Take a deep breath. This feeling will pass, and I'm right here with you, always on your side." },
+  { title: "Open when you need a smile",
+    message: "Okay, emergency smile mode activated! 😄\n\nRemember the time we laughed so hard we couldn't breathe? Think of that. You are the funniest, cutest person I know, and your smile is my favourite thing in the world." },
+  { title: "Open when you doubt yourself",
+    message: "Listen to me, {name}: you are capable, kind and brilliant.\n\nThe person I see is stronger than you think. Whatever is worrying you, you can handle it, and I'll be cheering for you the entire time." },
+  { title: "Open when you need a reminder that I love you",
+    message: "I love you. 💗\n\nOn the good days, the hard days, and all the boring in-between days. That's not changing. Not today, not tomorrow, not ever." },
+  { title: "Open just because",
+    message: "No reason. No occasion. I just wanted you to have a little surprise today. 🎀\n\nThank you for being exactly who you are." }
+];
+
+/* ==========================================================================
+   ⚙️  EVERYTHING BELOW IS THE ENGINE — no need to edit.
+   ========================================================================== */
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+  var unlocked = false, current = null, previous = null, modal = null;
+  var pages = {};
+  function T(s) { return String(s || '').replace(/\{name\}/g, NICKNAME).replace(/\{from\}/g, YOUR_NAME); }
+
+  // build elements safely (text is never treated as HTML)
+  function h(tag, p) {
+    var el = document.createElement(tag); p = p || {};
+    Object.keys(p).forEach(function (k) {
+      var v = p[k]; if (v == null || v === false) return;
+      if (k === 'class') el.className = v; else if (k === 'text') el.textContent = v;
+      else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? '' : v);
+    });
+    for (var i = 2; i < arguments.length; i++) add(el, arguments[i]);
+    return el;
+  }
+  function add(el, k) { if (k == null || k === false) return; if (Array.isArray(k)) return k.forEach(function (x) { add(el, x); }); el.appendChild(k.nodeType ? k : document.createTextNode(k)); }
+  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+  /* ---------- decorations ---------- */
+  function floaters(sym, n) {
+    var box = h('div', { class: 'fl', 'aria-hidden': 'true' });
+    for (var i = 0; i < n; i++) {
+      var s = h('span', { text: sym[i % sym.length] });
+      s.style.left = (Math.random() * 92 + 2) + '%'; s.style.fontSize = (12 + Math.random() * 14) + 'px';
+      s.style.animationDuration = (14 + Math.random() * 14) + 's'; s.style.animationDelay = (-Math.random() * 24) + 's';
+      box.appendChild(s);
+    }
+    return box;
+  }
+  function bow() {
+    var d = document.createElement('div');
+    d.innerHTML = '<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M60 42C40 8 8 6 6 29c-1 23 30 33 54 13Z" fill="var(--medium)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M60 42C80 8 112 6 114 29c1 23-30 33-54 13Z" fill="var(--medium)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M57 48 38 78l16-6 6 10Z" fill="var(--strong)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M63 48l19 30-16-6-6 10Z" fill="var(--strong)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><ellipse cx="30" cy="22" rx="11" ry="5" fill="#fff" opacity=".45" transform="rotate(-25 30 22)"/><ellipse cx="90" cy="22" rx="11" ry="5" fill="#fff" opacity=".45" transform="rotate(25 90 22)"/><circle cx="60" cy="42" r="12" fill="var(--strong)" stroke="#fff" stroke-width="3"/><circle cx="56" cy="38" r="3.2" fill="#fff" opacity=".6"/></svg>';
+    return d.firstChild;
+  }
+
+  /* ---------- password gate ---------- */
+  var tries = 0;
+  $('#form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var typed = $('#pw').value.trim().toLowerCase();
+    if (typed && typed === String(PASSWORD).trim().toLowerCase()) { $('#pw').value = ''; unlock(); return; }
+    $('#err').textContent = tries++ % 2 ? 'Not quite. Try again.' : 'Wrong password.';
+    $('#pw').value = ''; $('#pw').focus();
+  });
+
+  function unlock() {
+    unlocked = true;
+    pages = { birthday: pBirthday(), letters: pLetters() };
+    var app = $('#app');
+    Object.keys(pages).forEach(function (k) { pages[k].hidden = true; app.appendChild(pages[k]); });
+    var gate = $('#gate'); gate.parentNode.removeChild(gate);   // the black screen is removed completely
+    document.body.classList.add('unlocked');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#FFF0F7');
+    document.title = 'Happy Birthday 💗';
+    app.hidden = false;
+    startMusic();   // runs inside her tap on Unlock, so the phone allows sound
+    history.replaceState({ p: 'birthday' }, '');
+    show('birthday', false);
+  }
+
+  /* ---------- background music ---------- */
+  function startMusic() {
+    if (!MUSIC_FILE) return;
+    var a = new Audio(MUSIC_FILE); a.loop = true; a.preload = 'auto';
+    a.volume = Math.max(0, Math.min(1, MUSIC_VOLUME));
+    var btn = h('button', { id: 'music', type: 'button', 'aria-label': 'Music on or off' }, h('span', { text: '🎵' }));
+    var wanted = true;                       // does she want music? (her choice)
+    function paint() { var on = wanted && !a.paused; btn.classList.toggle('on', on); btn.firstChild.textContent = on ? '🎵' : '🔇'; btn.setAttribute('aria-pressed', String(on)); }
+    function play() { var p = a.play(); if (p && p.catch) p.catch(function () { paint(); }); }
+    btn.addEventListener('click', function () { wanted = a.paused; if (wanted) play(); else a.pause(); paint(); });
+    a.addEventListener('play', paint); a.addEventListener('pause', paint);
+    a.addEventListener('error', function () { btn.remove(); if (window.console) console.warn('Music file "' + MUSIC_FILE + '" was not found — put it next to index.html.'); });
+    // pause when she switches app or locks the phone, resume when she returns
+    document.addEventListener('visibilitychange', function () { if (document.hidden) a.pause(); else if (wanted) play(); });
+    document.body.appendChild(btn);
+    play(); paint();
+  }
+
+  /* ---------- navigation ---------- */
+  function show(name, push) {
+    if (!unlocked || !pages[name]) return;
+    Object.keys(pages).forEach(function (k) { pages[k].hidden = k !== name; });
+    var pg = pages[name]; pg.style.animation = 'none'; void pg.offsetWidth; pg.style.animation = '';
+    previous = current; current = name;
+    if (push !== false) history.pushState({ p: name }, '');
+    window.scrollTo(0, 0);
+    var hd = pg.querySelector('h1'); if (hd) { hd.tabIndex = -1; try { hd.focus({ preventScroll: true }); } catch (e) {} }
+  }
+  function toBirthday() { if (previous === 'birthday' && history.state && history.state.p === current) history.back(); else show('birthday'); }
+  window.addEventListener('popstate', function (e) {
+    if (modal && !(e.state && e.state.modal)) { closeNow(); return; }
+    if (unlocked && e.state && e.state.p && !e.state.modal) show(e.state.p, false);
+  });
+
+  /* ---------- pop-ups ---------- */
+  function openModal(cls, label, build) {
+    closeNow();
+    var ov = h('div', { class: 'ov' }), dlg = h('div', { class: 'modal ' + cls, role: 'dialog', 'aria-modal': 'true', 'aria-label': label, tabindex: '-1' });
+    ov.appendChild(dlg);
+    var key = function (e) { if (e.key === 'Escape') closeReq(); };
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeReq(); });
+    document.addEventListener('keydown', key);
+    dlg.appendChild(h('button', { class: 'x', type: 'button', 'aria-label': 'Close', text: '✕', onclick: closeReq }));
+    var extra = build(dlg, closeReq, key) || {};
+    $('#modal-root').appendChild(ov); document.body.classList.add('noscroll');
+    history.pushState({ p: current, modal: true }, '');
+    try { dlg.focus({ preventScroll: true }); } catch (e) {}
+    modal = { done: function () { document.removeEventListener('keydown', key); if (extra.onClose) extra.onClose(); ov.remove(); document.body.classList.remove('noscroll'); } };
+  }
+  function closeNow() { if (modal) { var m = modal; modal = null; m.done(); } }
+  function closeReq() { if (!modal) return; if (history.state && history.state.modal) history.back(); else closeNow(); }
+
+  /* ---------- shared bits ---------- */
+  function shell(id, wide, sym, title, intro) {
+    var wrap = h('div', { class: 'wrap' + (wide ? ' wide' : '') });
+    var sec = h('section', { class: 'page', id: 'p-' + id }, floaters(sym, 10), wrap);
+    wrap.appendChild(h('div', {}, h('button', { class: 'back', type: 'button', onclick: toBirthday, text: '← Back' })));
+    wrap.appendChild(h('h1', { class: 'title', text: title }));
+    wrap.appendChild(h('p', { class: 'intro', text: intro }));
+    return { sec: sec, wrap: wrap };
+  }
+  function empty(emoji, msg) { return h('div', { class: 'empty' }, h('b', { text: emoji }), h('p', { text: msg, style: 'margin:0' })); }
+
+  /* ---------- PAGE 2 ---------- */
+  function pBirthday() {
+    var sec = h('section', { class: 'page', id: 'p-birthday' }, floaters(['💗', '✨', '🎀', '⭐', '♡', '🌸'], 14));
+    sec.appendChild(h('div', { class: 'card' }, bow(),
+      h('p', { class: 'kicker', text: T('for {name}') }),
+      h('h1', { class: 'hero', text: T(BIRTHDAY_HEADING) }),
+      h('p', { class: 'msg', text: T(BIRTHDAY_MESSAGE) }),
+      STICKERS.length ? h('ul', { class: 'stickers' }, STICKERS.map(function (s) { return h('li', { text: T(s) }); })) : null,
+      h('button', { class: 'btn big', type: 'button', text: T(BIRTHDAY_BUTTON), onclick: function () { show('letters'); } })));
+    return sec;
+  }
+
+  /* ---------- PAGE 7: letters ---------- */
+  function pLetters() {
+    var list = (Array.isArray(LETTERS) ? LETTERS : []).filter(function (l) { return l && l.title; });
+    var s = shell('letters', true, ['💌', '💗', '✨', '♡', '🎀'], T(LETTERS_TITLE), T(LETTERS_INTRO));
+    if (!list.length) { s.wrap.appendChild(empty('💌', 'My letters are still being written. Check back soon ♡')); return s.sec; }
+    s.wrap.appendChild(h('div', { class: 'lgrid' }, list.map(function (l) {
+      return h('button', { class: 'env', type: 'button', 'aria-label': l.title, onclick: function () { letter(l); } }, h('span', { text: T(l.title) }));
+    })));
+    return s.sec;
+  }
+  function letter(l) {
+    openModal('', T(l.title), function (dlg, close) {
+      var sig = T(SIGNATURE);
+      dlg.appendChild(h('div', { class: 'paper' }, h('h2', { text: T(l.title) }), h('p', { text: T(l.message || 'This letter is still being written ♡') }), sig ? h('p', { class: 'sig', text: sig }) : null));
+      dlg.appendChild(h('div', { class: 'acts' }, h('button', { class: 'btn', type: 'button', text: '← Back to letters', onclick: close })));
+    });
+  }
+})();
+</script>
+</body>
+</html>
