@@ -9,20 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-/* ===== COLOURS (change here if you like) ===== */
 :root{
   --pale:#FFF0F7; --pastel:#FFD6E9; --medium:#FF8FC7; --strong:#E85CA7; --text:#65314E;
   --font:"Fredoka",ui-rounded,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --script:"Pacifico","Brush Script MT",cursive;
-  --shadow:0 6px 0 rgba(232,92,167,.16),0 14px 28px rgba(232,92,167,.18);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{overflow-x:clip;-webkit-text-size-adjust:100%}
-body{margin:0;min-height:100vh;min-height:100dvh;font-family:var(--font);font-size:17px;line-height:1.5;color:var(--text);background:#000;overflow-x:clip}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:var(--font);font-size:17px;line-height:1.6;color:var(--text);background:#000;overflow-x:clip}
 body.unlocked{background-color:var(--pale);background-image:radial-gradient(var(--pastel) 2.2px,transparent 2.8px);background-size:28px 28px}
-body.noscroll{overflow:hidden}
-img,iframe,video{max-width:100%}
-button{font:inherit;color:inherit}
 [hidden]{display:none!important}
 
 /* ===== PAGE 1: plain black password screen ===== */
@@ -33,140 +28,102 @@ button{font:inherit;color:inherit}
 #gate button{height:50px;border:1px solid #444;border-radius:6px;background:#000;color:#fff;font:400 17px var(--font);cursor:pointer}
 #gate button:active{background:#1a1a1a}
 #err{min-height:1.4em;margin:0;text-align:center;color:#bbb;font-size:15px}
+#hint{margin:-2px 0 0;text-align:center;color:#8a8a8a;font-size:14px;line-height:1.4}
 
-/* ===== shared pink pages ===== */
-.page{position:relative;overflow:hidden;min-height:100vh;min-height:100dvh;padding:calc(env(safe-area-inset-top,0px) + 18px) calc(env(safe-area-inset-right,0px) + 18px) calc(env(safe-area-inset-bottom,0px) + 40px) calc(env(safe-area-inset-left,0px) + 18px);animation:pageIn .5s ease both}
-.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto}
-.wrap.wide{max-width:1000px}
-.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border:0;border-radius:999px;cursor:pointer;font-weight:600;font-size:1.12rem;color:#fff;text-decoration:none;text-align:center;background:linear-gradient(180deg,#FF8FC7,var(--strong));box-shadow:0 5px 0 #c4468b,0 12px 20px rgba(232,92,167,.32)}
-.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #c4468b}
-.btn.big{min-height:64px;padding:0 36px;font-size:1.28rem}
-.btn.soft{color:var(--text);background:#fff;border:2px solid var(--pastel);box-shadow:0 4px 0 var(--pastel);min-height:48px;padding:0 22px;font-size:1rem}
-.back{appearance:none;min-height:46px;padding:0 18px;border-radius:999px;cursor:pointer;background:#fff;border:2px solid var(--pastel);color:var(--strong);font-weight:600;box-shadow:0 4px 0 var(--pastel)}
-.title{margin:10px 0 6px;text-align:center;font-family:var(--script);font-weight:400;font-size:clamp(1.9rem,8vw,2.5rem);line-height:1.3;color:var(--strong);text-shadow:0 3px 0 #fff;outline:none}
-.intro{margin:0 auto 24px;max-width:34ch;text-align:center;opacity:.85}
-.empty{margin:20px auto;max-width:380px;padding:28px 22px;text-align:center;background:#fff;border:3px dashed var(--medium);border-radius:28px}
-.empty b{display:block;font-size:2.6rem;margin-bottom:6px}
+/* ===== PAGE 2: happy birthday ===== */
+.page{position:relative;overflow:hidden;min-height:100vh;min-height:100dvh;padding:calc(env(safe-area-inset-top,0px) + 18px) calc(env(safe-area-inset-right,0px) + 16px) calc(env(safe-area-inset-bottom,0px) + 40px) calc(env(safe-area-inset-left,0px) + 16px);background:linear-gradient(180deg,rgba(255,214,233,.55),transparent 45%);animation:pageIn .6s ease both}
 .fl{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .fl span{position:absolute;bottom:-40px;color:var(--medium);opacity:0;animation:up linear infinite}
-
-/* PAGE 2 */
-#p-birthday{display:grid;place-items:center;background:linear-gradient(180deg,rgba(255,214,233,.55),transparent 55%)}
-.card{position:relative;z-index:1;width:100%;max-width:520px;margin:70px auto 0;padding:34px 22px 30px;text-align:center;background:#fff;border-radius:36px;box-shadow:0 0 0 4px var(--pastel),0 10px 26px rgba(232,92,167,.22)}
-.card svg{width:min(46vw,168px);margin:-100px auto 4px;display:block;filter:drop-shadow(0 8px 10px rgba(232,92,167,.3));animation:bob 4s ease-in-out infinite}
+.card{position:relative;z-index:1;width:100%;max-width:560px;margin:82px auto 0;padding:34px 22px 30px;text-align:center;background:#fff;border-radius:36px;box-shadow:0 0 0 4px var(--pastel),0 10px 26px rgba(232,92,167,.22)}
+.card svg{width:min(46vw,168px);margin:-108px auto 4px;display:block;filter:drop-shadow(0 8px 10px rgba(232,92,167,.3));animation:bob 4s ease-in-out infinite}
 .kicker{margin:0;font-family:var(--script);color:var(--medium);font-size:1.2rem}
-.hero{margin:6px 0 14px;font-weight:600;line-height:1.15;font-size:clamp(2.1rem,10.5vw,3rem);color:var(--strong);text-shadow:0 3px 0 var(--pastel);text-wrap:balance;outline:none}
-.msg{margin:0 0 20px;font-size:1.08rem;white-space:pre-line}
-.stickers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 26px;padding:0;list-style:none}
+.hero{margin:6px 0 18px;font-weight:600;line-height:1.15;font-size:clamp(2.1rem,10.5vw,3rem);color:var(--strong);text-shadow:0 3px 0 var(--pastel);text-wrap:balance}
+.divider{margin:0 0 20px;color:var(--medium);letter-spacing:.5em;font-size:.9rem}
+.msg{margin:0;font-size:1.08rem;text-align:left;white-space:pre-line;overflow-wrap:anywhere}
+.msg p{margin:0 0 1.05em}
+.sign{margin:22px 0 0;font-family:var(--script);font-size:1.3rem;line-height:1.7;color:var(--strong);white-space:pre-line}
+.stickers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px 0 0;padding:0;list-style:none}
 .stickers li{padding:6px 14px;border-radius:999px;font-size:.92rem;background:var(--pale);border:2px dashed var(--medium);transform:rotate(-2deg)}
 .stickers li:nth-child(2n){transform:rotate(2.5deg)}
+.mute{position:fixed;z-index:10;top:calc(env(safe-area-inset-top,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:var(--strong);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 0 0 3px var(--pastel),0 6px 14px rgba(232,92,167,.25)}
+.mute:active{transform:scale(.94)}
 
-/* PAGE 7 letters */
-#p-letters{background:linear-gradient(180deg,rgba(255,214,233,.6),transparent 60%)}
-.lgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px;padding:8px 2px 0}
-.env{appearance:none;position:relative;display:block;width:100%;min-height:138px;padding:56px 10px 14px;border:0;cursor:pointer;text-align:center;background:#fff;border-radius:6px 6px 14px 14px;box-shadow:0 6px 0 rgba(232,92,167,.18),0 12px 22px rgba(232,92,167,.16);transform:rotate(-1deg);font-weight:500;font-size:.95rem;line-height:1.3;color:var(--text)}
-.env:nth-child(2n){transform:rotate(1.2deg)}
-.env:active{transform:scale(.97)}
-.env::before{content:"";position:absolute;left:0;right:0;top:0;height:54px;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--pastel),#ffe7f2);clip-path:polygon(0 0,100% 0,50% 100%)}
-.env::after{content:"♥";position:absolute;left:50%;top:30px;width:30px;height:30px;margin-left:-15px;display:grid;place-items:center;border-radius:50%;background:var(--strong);color:#fff;font-size:.95rem}
-.env span{position:relative;overflow-wrap:anywhere}
-
-/* music button */
-#music{position:fixed;z-index:60;right:calc(env(safe-area-inset-right,0px) + 14px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;font-size:1.4rem;background:#fff;color:var(--strong);box-shadow:0 4px 0 var(--pastel),0 8px 18px rgba(232,92,167,.35)}
-#music:active{transform:translateY(3px);box-shadow:0 1px 0 var(--pastel)}
-#music.on span{display:inline-block;animation:bob 2s ease-in-out infinite}
-/* pop-ups */
-.ov{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow-y:auto;padding:14px;background:rgba(60,20,45,.62);animation:fade .2s both}
-.modal{position:relative;width:100%;max-width:560px;max-height:100%;animation:pop .3s both}
-.x{position:absolute;top:-6px;right:-4px;z-index:3;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:#fff;color:var(--strong);font-size:1.3rem;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.25)}
-.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
-.paper{position:relative;padding:30px 24px 24px;border-radius:22px;background:#fffdf8;text-align:left;background-image:repeating-linear-gradient(transparent 0 31px,rgba(255,143,199,.28) 31px 32px);background-position:0 14px;box-shadow:0 0 0 4px var(--pastel),0 10px 26px rgba(232,92,167,.3);max-height:calc(100dvh - 100px);overflow-y:auto}
-.paper h2{margin:8px 40px 14px 0;font-family:var(--script);font-weight:400;font-size:1.45rem;line-height:1.4;color:var(--strong);overflow-wrap:anywhere}
-.paper p{margin:0;line-height:32px;font-size:1.05rem;white-space:pre-line;overflow-wrap:anywhere}
-.paper .sig{margin-top:14px;font-family:var(--script);color:var(--strong);line-height:1.7}
-@media(min-width:700px){.lgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:700px){.card{padding:40px 44px 36px}.msg{font-size:1.15rem}}
+@media(max-width:340px){body{font-size:16px}.card{padding:30px 16px 26px}}
 @keyframes pageIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
 @keyframes up{0%{transform:translateY(0);opacity:0}12%{opacity:.5}90%{opacity:.5}100%{transform:translateY(-115vh);opacity:0}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.fl{display:none}}
 </style>
 </head>
 
 <body>
 
-<!-- ============ PAGE 1: plain black password screen ============ -->
+<!-- PAGE 1: plain black password screen -->
 <div id="gate">
   <form id="form" autocomplete="off">
     <input id="pw" type="password" placeholder="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Password">
+    <p id="hint" hidden></p>
     <button type="submit">Unlock</button>
     <p id="err" role="alert"></p>
   </form>
 </div>
 
 <div id="app" hidden></div>
-<div id="modal-root"></div>
 
 <script>
 /* ==========================================================================
-   ✏️  EDIT EVERYTHING HERE  (this is the only part you need to touch)
-   • Keep the "quotes" and the commas.
-   • To delete an item, delete its whole { ... }, line.
-   • To reorder, cut/paste whole lines.
-   • {name} in any text becomes her nickname, {from} becomes your name.
+   ✏️  EDIT HERE  (the only part you need to touch)
+   Keep the "quotes" and the commas / semicolons.
    ========================================================================== */
 
 // 🔑 THE PASSWORD — change the text between the quotes.
 // (Capital letters don't matter: "OurLove" and "ourlove" both work.)
 var PASSWORD = "10-9-2025";
 
-var NICKNAME = "My cutie meow";
-var YOUR_NAME = "Daddy";
+// 💡 HINT shown under the password box ("" for no hint). Change it to something only she would get.
+var HINT = "hint: First time we met outside (??-?-????)";
 
-/* 🎵 BACKGROUND MUSIC (plays softly on a loop after she unlocks)
-   1. Put your song file in the SAME folder as index.html, e.g. "music.mp3".
-   2. Type its exact file name below. Leave it as "" for no music.
-   3. When you publish, upload the music file together with index.html. */
+// 🎵 BACKGROUND MUSIC (starts after the right password)
+// By default a soft, gentle music-box tune is generated right in the browser, so there's nothing to upload.
+// Want your own song instead? Put the audio file (e.g. song.mp3) in the same folder as this page
+// and type its name here: var MUSIC_FILE = "song.mp3";
 var MUSIC_FILE = "music.mp3";
-var MUSIC_VOLUME = 0.35;   // 0 = silent, 1 = full. Soft background = 0.2 to 0.4
+// How loud the music is, from 0 (silent) to 1 (full). Soft is around 0.3.
+var MUSIC_VOLUME = 0.03;
 
-var BIRTHDAY_HEADING = "Happy Birthday, My Cutiepie! 🎂💗";
-var BIRTHDAY_MESSAGE =
-  "Its so hard to believe n so sweet how i have seen you grow so much, n trust me not just in age." +
-  "Since its my baby's special day, Dadda has prepared sum stuff for you.\n\n" +
-  "Come on in — I've hidden quite a few goodies inside. 🎀";
-var BIRTHDAY_BUTTON = "Open your surprise ♡";
-var STICKERS = ["✨ made with love", "🎀 Hope u like it", "💗 101% yours"];
+// Small line above the big heading
+var KICKER = "for my lil kittyyy";
 
-/* 💌 LITTLE LETTERS
-   Each letter is one line like:   { title: "Open when ...", message: "..." },
-   • To ADD a letter: copy any whole { ... }, line, paste it below the last one, and edit it.
-     You can add as many as you want — the page grows by itself.
-   • To EDIT: change the text inside the quotes.
-   • To REMOVE: delete the whole { ... }, line.  To REORDER: cut/paste lines.
-   • For a new paragraph inside a message, type \n\n
-   • Don't use a plain " inside the text (it breaks the line). Use ' or ” instead.
-   • {name} becomes her nickname and {from} becomes your name. */
-var LETTERS_TITLE = "Little Letters 💌";
-var LETTERS_INTRO = "Open one whenever you need it ♡";
-var SIGNATURE = "Forever yours,\nDadda 💗";
-var LETTERS = [
-  { title: "Open when you miss me",
-    message: "Hey cutiepie, if you're reading this, I'm prolly missing u a lot more hmph. I'm prolly somewhere far from you, and not able to text you, but i hope you always know tht dadda might not be txting u rn but hes always with u, in ur heart, soul, n mind.\n\nUr dadda's stwong baby, n ik u cn get thru this, dadda's gonna be with you soon, i pwomise. So until then stay patient, close ur eyes, n imagine dadda's arms around u oki bubs?" },
-  { title: "Open when you're sad",
-    message: "Oh, {name}. Come here. 🫂\n\nIt's okay to feel sad. You don't have to be strong all the time. Take a deep breath. This feeling will pass, and I'm right here with you, always on your side." },
-  { title: "Open when you need a smile",
-    message: "Okay, emergency smile mode activated! 😄\n\nRemember the time we laughed so hard we couldn't breathe? Think of that. You are the funniest, cutest person I know, and your smile is my favourite thing in the world." },
-  { title: "Open when you doubt yourself",
-    message: "Listen to me, {name}: you are capable, kind and brilliant.\n\nThe person I see is stronger than you think. Whatever is worrying you, you can handle it, and I'll be cheering for you the entire time." },
-  { title: "Open when you need a reminder that I love you",
-    message: "I love you. 💗\n\nOn the good days, the hard days, and all the boring in-between days. That's not changing. Not today, not tomorrow, not ever." },
-  { title: "Open just because",
-    message: "No reason. No occasion. I just wanted you to have a little surprise today. 🎀\n\nThank you for being exactly who you are." }
-];
+var HEADING = "Happy Birthday, My Cutiepie! 🎂💗";
+
+// 💌 THE BIG MESSAGE
+// • Start a new paragraph by typing \n\n   (backslash n, twice)
+// • Don't use a plain " inside the text (it breaks things). Use ' or ” instead.
+// • Each line ends with  +  except the last one, which ends with  ;
+var MESSAGE =
+  "Happy birthday my cutie meoww, today is the day when my smoll little baby is turning 16, ur slowly becoming a big girl, will u leave dadda when ur big? >_<. well ik u wont muhehehe, ik todays gonna be a rlly exciting day for you, so take ur time and enjoy it well oki, cz its a special day tht comes only once a year noh.\n\n" +
+
+  "I cnt believe how fast babies grow up :(, like wot do u mean u were only 14 when i fell in love with you, n now in the blink of an eye ur suddenly 16, its just so shocking T-T" +
+  "but its okii the older u grow the sooner we get married n live together, as the years pass, u continue to grow so much, ur alr incomparable to last year when u were just a 14 yo baby hmph, youve grown both emotionally and especially physically 0_<, muhehehe." +
+  "but well no matter how many years go past, no matter how the numbers of ur ages fly by, i hope youll always continue to grow, and tht youll be a bit closer to happiness everyday tht u wake up, and in all of those years i should and i will forever be right next to you.\n\n" +
+
+  "In all ur laughter, and in all ur tears, through every sleepless night, and ever exciting event, ill be there right next you always ( ngl this would soung creepy if the website was dark themed T-T ) " +
+  "I cnt believe how far weve managed to come tgt in just this small but still such a long year, i hope every year from now, n every year after, well always continue to be tgt. its hard to believe how this cute lil baby has managed to conquer every corner of my heart, and life. its surprising but at the same time so relieving how weve ended up tgt, n all i could ever ask for in this world is tht it continues to stay like this hehehe." +
+  "ik the past year has been rlly hard for you, but as the only person who saw u struggle thru it all, ik youll make it thru no matter what problem may come ur way. my next line might sound cringey but its tru hmph- ur my favourite hello as well as the worst goodbye, i hope this year give u everything u deserve n more, i hope its filled with laughter, good food, soft mornings, and everything tht makes my baby happy, and thru it all i promise to always be there, and to always be ur loudest supporter.\n\n" +
+
+  "No matter how big u get, i hope you know tht youll always, forever be just my cute lil baby, so no matter wot happens, no matter wot problem might come onto you, never ever hesitate to come to me oki baby? Ill always be there to help you, no matter how angwy i am or how sad i may be, even if were not tgt anymore, just know tht ill always be there whenever u may need me." +
+  "I love you, I love you, I love you, n ill always continue to, no amount of words are enough to express how much i love you, but whenever u doubt it just huggie me oki? theres no feeling tht my heartbeat wont be able to convey. I hope ill always be the one u seek after a long hard day, i hope ill always be a part of every good memory, i hope i never become a burden to you in anything, so no matter wot, come to me, if ur angry, sad, missing me, hungry, wtvr just come to me, even if theres absolutely no reason, come to me understood?" +
+  "My cutie little baby meow, i hope yk how much u mean to me, n i hope u always cherish urself hmph, never ever think ur not good enough understood bubs? cz i assure u youll always be enough hmph, No matter wot u do, just know tht ill always be praying for your success, so always be confident oki?\n\n" +
+
+  "Thank you for loving me the way you do, and i hope you always know how proud i am, you manage to shock me in everything u do, cz ur always just so better than my expectations, i hope you know just how much i cherish you, im not exaggerating when i say this, but i am just so glad tht u were born, and tht u ended up in the same class as me, and tht u sent me tht one follow request hehehe, i love u so much, and we both know how lucky i am to hv you hmph. " +
+  "I love you so damn much, more than any message could convey, so just know im right behind you handling everything, so be at peace, and enjoy ur birthday oki cutiepie. 💗";
+
+// Sign-off under the message ("" for none). \n = new line.
+var SIGN_OFF = "Forever yours,\n Darsh fcking Gulia 💗";
+
+// Little stickers at the bottom. Add, remove or leave as [] for none.
+var STICKERS = ["✨ I love you", "🎀 Mwuahhh", "💗 gib kissie"];
 
 /* ==========================================================================
    ⚙️  EVERYTHING BELOW IS THE ENGINE — no need to edit.
@@ -174,29 +131,21 @@ var LETTERS = [
 (function () {
   'use strict';
   var $ = function (s) { return document.querySelector(s); };
-  var unlocked = false, current = null, previous = null, modal = null;
-  var pages = {};
-  function T(s) { return String(s || '').replace(/\{name\}/g, NICKNAME).replace(/\{from\}/g, YOUR_NAME); }
 
-  // build elements safely (text is never treated as HTML)
-  function h(tag, p) {
-    var el = document.createElement(tag); p = p || {};
-    Object.keys(p).forEach(function (k) {
-      var v = p[k]; if (v == null || v === false) return;
-      if (k === 'class') el.className = v; else if (k === 'text') el.textContent = v;
-      else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), v);
-      else el.setAttribute(k, v === true ? '' : v);
+  // builds elements safely: text is never treated as HTML
+  function h(tag, props) {
+    var el = document.createElement(tag); props = props || {};
+    Object.keys(props).forEach(function (k) {
+      var v = props[k]; if (v == null || v === false) return;
+      if (k === 'class') el.className = v; else if (k === 'text') el.textContent = v; else el.setAttribute(k, v);
     });
-    for (var i = 2; i < arguments.length; i++) add(el, arguments[i]);
+    for (var i = 2; i < arguments.length; i++) { var c = arguments[i]; if (c) el.appendChild(c.nodeType ? c : document.createTextNode(c)); }
     return el;
   }
-  function add(el, k) { if (k == null || k === false) return; if (Array.isArray(k)) return k.forEach(function (x) { add(el, x); }); el.appendChild(k.nodeType ? k : document.createTextNode(k)); }
-  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
-  /* ---------- decorations ---------- */
-  function floaters(sym, n) {
-    var box = h('div', { class: 'fl', 'aria-hidden': 'true' });
-    for (var i = 0; i < n; i++) {
+  function floaters() {
+    var sym = ['💗', '✨', '🎀', '⭐', '♡', '🌸'], box = h('div', { class: 'fl', 'aria-hidden': 'true' });
+    for (var i = 0; i < 14; i++) {
       var s = h('span', { text: sym[i % sym.length] });
       s.style.left = (Math.random() * 92 + 2) + '%'; s.style.fontSize = (12 + Math.random() * 14) + 'px';
       s.style.animationDuration = (14 + Math.random() * 14) + 's'; s.style.animationDelay = (-Math.random() * 24) + 's';
@@ -204,129 +153,118 @@ var LETTERS = [
     }
     return box;
   }
+
+  // a bow drawn from simple shapes (original artwork)
   function bow() {
     var d = document.createElement('div');
     d.innerHTML = '<svg viewBox="0 0 120 84" aria-hidden="true"><path d="M60 42C40 8 8 6 6 29c-1 23 30 33 54 13Z" fill="var(--medium)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M60 42C80 8 112 6 114 29c1 23-30 33-54 13Z" fill="var(--medium)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M57 48 38 78l16-6 6 10Z" fill="var(--strong)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M63 48l19 30-16-6-6 10Z" fill="var(--strong)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><ellipse cx="30" cy="22" rx="11" ry="5" fill="#fff" opacity=".45" transform="rotate(-25 30 22)"/><ellipse cx="90" cy="22" rx="11" ry="5" fill="#fff" opacity=".45" transform="rotate(25 90 22)"/><circle cx="60" cy="42" r="12" fill="var(--strong)" stroke="#fff" stroke-width="3"/><circle cx="56" cy="38" r="3.2" fill="#fff" opacity=".6"/></svg>';
     return d.firstChild;
   }
 
-  /* ---------- password gate ---------- */
+  // the birthday page is only built AFTER the right password, so it doesn't exist before that
+  function buildBirthday() {
+    var paras = String(MESSAGE).split(/\n\s*\n/).map(function (p) { return h('p', { text: p.replace(/\n/g, ' ').trim() }); });
+    var stickers = Array.isArray(STICKERS) ? STICKERS : [];
+    var card = h('div', { class: 'card' }, bow(),
+      KICKER ? h('p', { class: 'kicker', text: KICKER }) : null,
+      h('h1', { class: 'hero', text: HEADING }),
+      h('div', { class: 'divider', 'aria-hidden': 'true', text: '♡ ♡ ♡' }),
+      (function () { var m = h('div', { class: 'msg' }); paras.forEach(function (p) { m.appendChild(p); }); return m; })(),
+      SIGN_OFF ? h('p', { class: 'sign', text: SIGN_OFF }) : null,
+      stickers.length ? (function () { var u = h('ul', { class: 'stickers' }); stickers.forEach(function (s) { u.appendChild(h('li', { text: s })); }); return u; })() : null);
+    return h('section', { class: 'page' }, floaters(), card);
+  }
+
+  // ---- background music: your own file if MUSIC_FILE is set, otherwise a soft generated music-box tune ----
+  var music = (function () {
+    var ctx, master, lp, timer, audio, fadeTimer, on = false, started = false;
+    var vol = Math.max(0, Math.min(1, Number(MUSIC_VOLUME) || 0.3));
+    var BEAT = 0.46, ARP = [0, 1, 2, 3, 2, 1, 2, 1];
+    var CHORDS = [[60, 64, 67, 72], [57, 60, 64, 69], [53, 57, 60, 65], [55, 59, 62, 67]]; // C, Am, F, G
+    var hz = function (m) { return 440 * Math.pow(2, (m - 69) / 12); };
+
+    function pluck(m, t) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'triangle'; o.frequency.value = hz(m + 12);
+      g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(0.16, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 1.8);
+      o.connect(g); g.connect(lp); o.start(t); o.stop(t + 1.9);
+    }
+    function pad(m, t, len) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = hz(m);
+      g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(0.07, t + 1.2);
+      g.gain.setValueAtTime(0.07, t + len - 1.2); g.gain.linearRampToValueAtTime(0.0001, t + len);
+      o.connect(g); g.connect(lp); o.start(t); o.stop(t + len + 0.1);
+    }
+    var step = 0, next = 0;
+    function tick() {
+      while (next < ctx.currentTime + 0.9) {
+        var i = step % 8, chord = CHORDS[Math.floor(step / 8) % 4];
+        if (i === 0) pad(chord[0] - 12, next, BEAT * 8);
+        pluck(chord[ARP[i]], next);
+        next += BEAT; step++;
+      }
+    }
+    function startSynth() {
+      var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+      ctx = new AC();
+      master = ctx.createGain(); master.gain.value = 0.0001;
+      lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2200;
+      var dly = ctx.createDelay(1.5), fb = ctx.createGain(), wet = ctx.createGain();
+      dly.delayTime.value = 0.55; fb.gain.value = 0.38; wet.gain.value = 0.45;
+      lp.connect(master); lp.connect(dly); dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(master);
+      master.connect(ctx.destination);
+      master.gain.linearRampToValueAtTime(vol, ctx.currentTime + 3);   // gentle fade-in
+      next = ctx.currentTime + 0.2; tick(); timer = setInterval(tick, 200);
+    }
+    function startFile() {
+      audio = new Audio(MUSIC_FILE); audio.loop = true; audio.volume = 0;
+      var p = audio.play(); if (p && p.catch) p.catch(function () {});
+      var v = 0; fadeTimer = setInterval(function () { v += vol / 30; audio.volume = Math.min(vol, v); if (v >= vol) clearInterval(fadeTimer); }, 100);
+    }
+    function pause() { on = false; if (audio) audio.pause(); else if (ctx) ctx.suspend(); }
+    function resume() { on = true; if (audio) { var p = audio.play(); if (p && p.catch) p.catch(function () {}); } else if (ctx) ctx.resume(); }
+    document.addEventListener('visibilitychange', function () {   // pause when the tab/phone screen is hidden
+      if (!started) return;
+      if (document.hidden) { if (on) { if (audio) audio.pause(); else if (ctx) ctx.suspend(); } }
+      else if (on) resume();
+    });
+    return {
+      start: function () { if (started) return; started = true; on = true; try { MUSIC_FILE ? startFile() : startSynth(); } catch (e) {} },
+      toggle: function () { if (!started) return false; on ? pause() : resume(); return on; }
+    };
+  })();
+
+  function muteButton() {
+    var b = h('button', { class: 'mute', type: 'button', 'aria-label': 'Turn music off', text: '🔊' });
+    b.addEventListener('click', function () {
+      var playing = music.toggle();
+      b.textContent = playing ? '🔊' : '🔇';
+      b.setAttribute('aria-label', playing ? 'Turn music off' : 'Turn music on');
+    });
+    return b;
+  }
+
+  if (HINT) { var hintEl = $('#hint'); hintEl.textContent = HINT; hintEl.hidden = false; }
+
   var tries = 0;
   $('#form').addEventListener('submit', function (e) {
     e.preventDefault();
     var typed = $('#pw').value.trim().toLowerCase();
-    if (typed && typed === String(PASSWORD).trim().toLowerCase()) { $('#pw').value = ''; unlock(); return; }
+    if (typed && typed === String(PASSWORD).trim().toLowerCase()) {
+      music.start();                                       // must run here, inside the tap/click, so browsers allow sound
+      var app = $('#app'); app.appendChild(buildBirthday()); app.appendChild(muteButton());
+      $('#gate').remove();                                 // the black screen is removed completely
+      document.body.classList.add('unlocked');
+      $('meta[name="theme-color"]').setAttribute('content', '#FFF0F7');
+      document.title = 'Happy Birthday 💗';
+      app.hidden = false; window.scrollTo(0, 0);
+      return;
+    }
     $('#err').textContent = tries++ % 2 ? 'Not quite. Try again.' : 'Wrong password.';
     $('#pw').value = ''; $('#pw').focus();
   });
-
-  function unlock() {
-    unlocked = true;
-    pages = { birthday: pBirthday(), letters: pLetters() };
-    var app = $('#app');
-    Object.keys(pages).forEach(function (k) { pages[k].hidden = true; app.appendChild(pages[k]); });
-    var gate = $('#gate'); gate.parentNode.removeChild(gate);   // the black screen is removed completely
-    document.body.classList.add('unlocked');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#FFF0F7');
-    document.title = 'Happy Birthday 💗';
-    app.hidden = false;
-    startMusic();   // runs inside her tap on Unlock, so the phone allows sound
-    history.replaceState({ p: 'birthday' }, '');
-    show('birthday', false);
-  }
-
-  /* ---------- background music ---------- */
-  function startMusic() {
-    if (!MUSIC_FILE) return;
-    var a = new Audio(MUSIC_FILE); a.loop = true; a.preload = 'auto';
-    a.volume = Math.max(0, Math.min(1, MUSIC_VOLUME));
-    var btn = h('button', { id: 'music', type: 'button', 'aria-label': 'Music on or off' }, h('span', { text: '🎵' }));
-    var wanted = true;                       // does she want music? (her choice)
-    function paint() { var on = wanted && !a.paused; btn.classList.toggle('on', on); btn.firstChild.textContent = on ? '🎵' : '🔇'; btn.setAttribute('aria-pressed', String(on)); }
-    function play() { var p = a.play(); if (p && p.catch) p.catch(function () { paint(); }); }
-    btn.addEventListener('click', function () { wanted = a.paused; if (wanted) play(); else a.pause(); paint(); });
-    a.addEventListener('play', paint); a.addEventListener('pause', paint);
-    a.addEventListener('error', function () { btn.remove(); if (window.console) console.warn('Music file "' + MUSIC_FILE + '" was not found — put it next to index.html.'); });
-    // pause when she switches app or locks the phone, resume when she returns
-    document.addEventListener('visibilitychange', function () { if (document.hidden) a.pause(); else if (wanted) play(); });
-    document.body.appendChild(btn);
-    play(); paint();
-  }
-
-  /* ---------- navigation ---------- */
-  function show(name, push) {
-    if (!unlocked || !pages[name]) return;
-    Object.keys(pages).forEach(function (k) { pages[k].hidden = k !== name; });
-    var pg = pages[name]; pg.style.animation = 'none'; void pg.offsetWidth; pg.style.animation = '';
-    previous = current; current = name;
-    if (push !== false) history.pushState({ p: name }, '');
-    window.scrollTo(0, 0);
-    var hd = pg.querySelector('h1'); if (hd) { hd.tabIndex = -1; try { hd.focus({ preventScroll: true }); } catch (e) {} }
-  }
-  function toBirthday() { if (previous === 'birthday' && history.state && history.state.p === current) history.back(); else show('birthday'); }
-  window.addEventListener('popstate', function (e) {
-    if (modal && !(e.state && e.state.modal)) { closeNow(); return; }
-    if (unlocked && e.state && e.state.p && !e.state.modal) show(e.state.p, false);
-  });
-
-  /* ---------- pop-ups ---------- */
-  function openModal(cls, label, build) {
-    closeNow();
-    var ov = h('div', { class: 'ov' }), dlg = h('div', { class: 'modal ' + cls, role: 'dialog', 'aria-modal': 'true', 'aria-label': label, tabindex: '-1' });
-    ov.appendChild(dlg);
-    var key = function (e) { if (e.key === 'Escape') closeReq(); };
-    ov.addEventListener('click', function (e) { if (e.target === ov) closeReq(); });
-    document.addEventListener('keydown', key);
-    dlg.appendChild(h('button', { class: 'x', type: 'button', 'aria-label': 'Close', text: '✕', onclick: closeReq }));
-    var extra = build(dlg, closeReq, key) || {};
-    $('#modal-root').appendChild(ov); document.body.classList.add('noscroll');
-    history.pushState({ p: current, modal: true }, '');
-    try { dlg.focus({ preventScroll: true }); } catch (e) {}
-    modal = { done: function () { document.removeEventListener('keydown', key); if (extra.onClose) extra.onClose(); ov.remove(); document.body.classList.remove('noscroll'); } };
-  }
-  function closeNow() { if (modal) { var m = modal; modal = null; m.done(); } }
-  function closeReq() { if (!modal) return; if (history.state && history.state.modal) history.back(); else closeNow(); }
-
-  /* ---------- shared bits ---------- */
-  function shell(id, wide, sym, title, intro) {
-    var wrap = h('div', { class: 'wrap' + (wide ? ' wide' : '') });
-    var sec = h('section', { class: 'page', id: 'p-' + id }, floaters(sym, 10), wrap);
-    wrap.appendChild(h('div', {}, h('button', { class: 'back', type: 'button', onclick: toBirthday, text: '← Back' })));
-    wrap.appendChild(h('h1', { class: 'title', text: title }));
-    wrap.appendChild(h('p', { class: 'intro', text: intro }));
-    return { sec: sec, wrap: wrap };
-  }
-  function empty(emoji, msg) { return h('div', { class: 'empty' }, h('b', { text: emoji }), h('p', { text: msg, style: 'margin:0' })); }
-
-  /* ---------- PAGE 2 ---------- */
-  function pBirthday() {
-    var sec = h('section', { class: 'page', id: 'p-birthday' }, floaters(['💗', '✨', '🎀', '⭐', '♡', '🌸'], 14));
-    sec.appendChild(h('div', { class: 'card' }, bow(),
-      h('p', { class: 'kicker', text: T('for {name}') }),
-      h('h1', { class: 'hero', text: T(BIRTHDAY_HEADING) }),
-      h('p', { class: 'msg', text: T(BIRTHDAY_MESSAGE) }),
-      STICKERS.length ? h('ul', { class: 'stickers' }, STICKERS.map(function (s) { return h('li', { text: T(s) }); })) : null,
-      h('button', { class: 'btn big', type: 'button', text: T(BIRTHDAY_BUTTON), onclick: function () { show('letters'); } })));
-    return sec;
-  }
-
-  /* ---------- PAGE 7: letters ---------- */
-  function pLetters() {
-    var list = (Array.isArray(LETTERS) ? LETTERS : []).filter(function (l) { return l && l.title; });
-    var s = shell('letters', true, ['💌', '💗', '✨', '♡', '🎀'], T(LETTERS_TITLE), T(LETTERS_INTRO));
-    if (!list.length) { s.wrap.appendChild(empty('💌', 'My letters are still being written. Check back soon ♡')); return s.sec; }
-    s.wrap.appendChild(h('div', { class: 'lgrid' }, list.map(function (l) {
-      return h('button', { class: 'env', type: 'button', 'aria-label': l.title, onclick: function () { letter(l); } }, h('span', { text: T(l.title) }));
-    })));
-    return s.sec;
-  }
-  function letter(l) {
-    openModal('', T(l.title), function (dlg, close) {
-      var sig = T(SIGNATURE);
-      dlg.appendChild(h('div', { class: 'paper' }, h('h2', { text: T(l.title) }), h('p', { text: T(l.message || 'This letter is still being written ♡') }), sig ? h('p', { class: 'sig', text: sig }) : null));
-      dlg.appendChild(h('div', { class: 'acts' }, h('button', { class: 'btn', type: 'button', text: '← Back to letters', onclick: close })));
-    });
-  }
 })();
 </script>
 </body>
